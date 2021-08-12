@@ -20,11 +20,17 @@ public class HotelList extends Fragment {
                      "Bluebell Hotel\n41 Ngõ Huyện, Phường Hàng Trống, Quận Hoàn Kiếm, Hà Nội, Việt Nam"
                     };
     private final int mItemImage = R.drawable.hotel;
+    private Context mContext;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext=context;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView =  inflater.inflate(R.layout.detail_list, container, false);
         ListView mListview = rootView.findViewById(R.id.hotel_list);
-        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), mItemImage, mItemName);
+        CustomAdapter customAdapter = new CustomAdapter(mContext(), mItemImage, mItemName);
         mListview.setAdapter(customAdapter);
         return rootView;
     }
