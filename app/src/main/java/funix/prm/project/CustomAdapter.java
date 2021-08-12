@@ -19,13 +19,11 @@ public class CustomAdapter extends BaseAdapter {
         this.mContent = getApplicationContext;
         this.mItemImage = itemImage;
         this.mItemName = itemName;
-
+        mInflater = (LayoutInflater.from(mContent));
     }
-
     @SuppressLint("ViewHolder")
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        mInflater = (LayoutInflater.from(mContent));
         view = mInflater.inflate(R.layout.row_item, null);
         TextView itemName = view.findViewById(R.id.item_name);
         ImageView itemImage = view.findViewById(R.id.item_img);
