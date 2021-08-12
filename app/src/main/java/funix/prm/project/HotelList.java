@@ -30,7 +30,7 @@ public class HotelList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView =  inflater.inflate(R.layout.detail_list, container, false);
         ListView mListview = rootView.findViewById(R.id.hotel_list);
-        CustomAdapter customAdapter = new CustomAdapter(mContext(), mItemImage, mItemName);
+        CustomAdapter customAdapter = new CustomAdapter(mContext, mItemImage, mItemName);
         mListview.setAdapter(customAdapter);
         return rootView;
     }
