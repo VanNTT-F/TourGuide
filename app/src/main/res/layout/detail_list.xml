@@ -2,32 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="@dimen/margin">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/title_height"
-        android:orientation="horizontal">
-        <ImageButton
-            android:id="@+id/back_btn"
-            android:layout_width="@dimen/title_height"
-            android:layout_height="@dimen/title_height"
-            android:src="@drawable/ic_back"
-            android:background="@color/purple_500"
-            android:contentDescription="@string/back"/>
-        <TextView
-            android:id="@+id/title_text"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/title_height"
-            android:text="@string/app_title"
-            android:textSize="@dimen/text_size1"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:background="@color/purple_500"
-            android:gravity="center"/>
-    </LinearLayout>
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_list"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+    android:orientation="vertical">
+<ListView
+    android:id="@+id/detail_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/ic_launcher_background"
+    android:dividerHeight="@dimen/divider_size"
+    android:footerDividersEnabled="false"/>
 </LinearLayout>

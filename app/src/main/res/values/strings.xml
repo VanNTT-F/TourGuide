@@ -7,4 +7,8 @@
     <string name="hospital">Bệnh Viện</string>
     <string name="metro">Xe Buýt</string>
     <string name="back">Về trang trước</string>
+    <string name="hotel_slogan">Your best Room Service!</string>
+    <string name="atm_slogan">All bank services in a single machine!</string>
+    <string name="hospital_slogan">Your health is our goal!</string>
+    <string name="metro_slogan">Minimum cost to reach your destination in time!</string>
 </resources>
