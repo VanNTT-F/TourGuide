@@ -7,18 +7,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
+import com.google.android.material.appbar.MaterialToolbar;
 
 public class DetailItem extends Fragment {
+    String sc;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        sc = this.getArguments().getString("scItem");
+        int item =  getArguments().getInt("ItemPosition");
         View view = inflater.inflate(R.layout.detail_item, container, false);
 
         ImageView mItemImage = view.findViewById(R.id.detail_logo);
         TextView mItemName = view.findViewById(R.id.detail_name);
         TextView mItemAddress = view.findViewById(R.id.detail_address);
         TextView mItemSlogan = view.findViewById(R.id.detail_slogan);
-        String sc = getArguments().getString("scDetail");
-        int item =  getArguments().getInt("item");
+
         switch (sc) {
             case "hotel":
                 mItemImage.setImageResource(R.drawable.hotel);
@@ -46,5 +49,18 @@ public class DetailItem extends Fragment {
                 break;
         }
         return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Bundle argsList = new Bundle();
+        Fragment mList = new DetailList();
+        argsList.putString("service", sc);
+        MaterialToolbar mTitleBar = getActivity().findViewById(R.id.titleBar);
+        mTitleBar.setNavigationOnClickListener(v -> {
+            mList.setArguments(argsList);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_list, mList).commit();
+        });
     }
 }

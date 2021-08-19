@@ -8,6 +8,8 @@ import android.widget.ImageButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.appbar.MaterialToolbar;
+
 public class HomePage extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,12 +29,15 @@ public class HomePage extends Fragment {
 
         ImageButton mMetro = view.findViewById(R.id.metro_img);
         mMetro.setOnClickListener(v -> Services("metro"));
+
+        MaterialToolbar mTitleBar = getActivity().findViewById(R.id.titleBar);
+        mTitleBar.setNavigationIcon(null);
     }
     public void Services(String sc) {
+        Bundle argsList = new Bundle();
+        argsList.putString("service", sc);
         Fragment mList = new DetailList();
-        Bundle args = new Bundle();
-        args.putString("service", sc);
-        mList.setArguments(args);
+        mList.setArguments(argsList);
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_list, mList);
         ft.setReorderingAllowed(true).addToBackStack(null).commit();

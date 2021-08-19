@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-<ListView
-    android:id="@+id/detail_list"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:divider="@drawable/ic_launcher_background"
-    android:dividerHeight="@dimen/divider_size"
-    android:footerDividersEnabled="false"/>
+    <ListView
+        android:id="@+id/detail_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/ic_launcher_background"
+        android:dividerHeight="@dimen/divider_size"
+        android:footerDividersEnabled="false"/>
 </LinearLayout>

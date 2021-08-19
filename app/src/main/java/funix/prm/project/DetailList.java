@@ -14,10 +14,11 @@ public class DetailList extends Fragment {
     int mItemImage = 0;
     String[] mItemName = null;
     String[] mItemAddress = null;
+    String sc;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        sc = getArguments().getString("service");
         View view = inflater.inflate(R.layout.detail_list, container, false);
-        String sc = getArguments().getString("service");
         switch (sc) {
             case "hotel":
                 mItemImage = R.drawable.hotel;
@@ -46,17 +47,20 @@ public class DetailList extends Fragment {
         mDetailList.setAdapter(adapter);
 
         mDetailList.setOnItemClickListener((parent, view1, position, id) -> {
+            Bundle argsItem = new Bundle();
+            argsItem.putString("scItem", sc);
+            argsItem.putInt("ItemPosition", position);
             Fragment mDetailItem = new DetailItem();
-            Bundle args = new Bundle();
-            args.putString("scDetail", sc);
-            args.putInt("item", position);
-            mDetailItem.setArguments(args);
+            mDetailItem.setArguments(argsItem);
             FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_list, mDetailItem).setReorderingAllowed(true).commit();
         });
 
         MaterialToolbar mTitleBar = getActivity().findViewById(R.id.titleBar);
         mTitleBar.setNavigationIcon(R.drawable.ic_back);
+        mTitleBar.setNavigationOnClickListener(v ->
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_list, new HomePage()).commit());
+
         return view;
 
     }
