@@ -17,7 +17,9 @@ public class HomePage extends Fragment {
     }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-
+    //4 image buttons with onClickListener event:
+    //      --> replacing home_page fragment with detail_list fragment
+    //onClickListener event is handled via local Services() method (as below)
         ImageButton mHotel = view.findViewById(R.id.hotel_img);
         mHotel.setOnClickListener(v -> Services("hotel"));
 
@@ -33,7 +35,11 @@ public class HomePage extends Fragment {
         MaterialToolbar mTitleBar = getActivity().findViewById(R.id.titleBar);
         mTitleBar.setNavigationIcon(null);
     }
-    public void Services(String sc) {
+
+    //Local method to replace home_page fragment with detail_list fragment
+    //Use Bundle to set sc argument with value of clicked ImageButton (hotel/atm/hospital/metro)
+    //      --> pass sc argument to detail_fragment
+    private void Services(String sc) {
         Bundle argsList = new Bundle();
         argsList.putString("service", sc);
         Fragment mList = new DetailList();

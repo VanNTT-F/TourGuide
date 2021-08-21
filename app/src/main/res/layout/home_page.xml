@@ -16,6 +16,7 @@
         android:layout_columnSpan="2"
         android:text="@string/location"
         android:textSize="@dimen/text_size1"
+        android:textColor="@color/purple_500"
         android:layout_gravity="center"
         android:padding="@dimen/text_padding"/>
     <ImageButton
@@ -24,7 +25,9 @@
         android:layout_height="@dimen/imgBtn_size"
         android:layout_columnWeight="0.5"
         android:layout_gravity="center"
-        android:background="@color/white"
+        android:background="@color/purple_200"
+        android:outlineAmbientShadowColor="@color/teal_200"
+        android:outlineProvider="bounds"
         android:src="@drawable/hotel"
         android:scaleType="fitCenter"
         android:contentDescription="@string/hotel"/>
@@ -34,7 +37,7 @@
         android:layout_height="@dimen/imgBtn_size"
         android:layout_columnWeight="0.5"
         android:layout_gravity="center"
-        android:background="@color/white"
+        android:background="@color/teal_200"
         android:src="@drawable/atm_machine"
         android:scaleType="fitCenter"
         android:contentDescription="@string/atm"/>
@@ -44,6 +47,8 @@
         android:layout_columnWeight="0.5"
         android:layout_gravity="center"
         android:padding="@dimen/text_padding"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
         android:text="@string/hotel"/>
     <TextView
         android:layout_width="wrap_content"
@@ -51,6 +56,8 @@
         android:layout_columnWeight="0.5"
         android:layout_gravity="center"
         android:padding="@dimen/text_padding"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
         android:text="@string/atm"/>
     <ImageButton
         android:id="@+id/hospital_img"
@@ -58,7 +65,7 @@
         android:layout_height="@dimen/imgBtn_size"
         android:layout_columnWeight="0.5"
         android:layout_gravity="center"
-        android:background="@color/white"
+        android:background="@color/yellow"
         android:src="@drawable/hospital"
         android:scaleType="fitCenter"
         android:contentDescription="@string/hospital"/>
@@ -68,7 +75,7 @@
         android:layout_height="@dimen/imgBtn_size"
         android:layout_columnWeight="0.5"
         android:layout_gravity="center"
-        android:background="@color/white"
+        android:background="@color/pink"
         android:src="@drawable/metro"
         android:scaleType="fitCenter"
         android:contentDescription="@string/metro"/>
@@ -78,6 +85,8 @@
         android:layout_columnWeight="0.5"
         android:layout_gravity="center"
         android:padding="@dimen/text_padding"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size"
         android:text="@string/hospital"/>
     <TextView
         android:layout_width="wrap_content"
@@ -85,5 +94,7 @@
         android:layout_columnWeight="0.5"
         android:layout_gravity="center"
         android:padding="@dimen/text_padding"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
         android:text="@string/metro"/>
 </GridLayout>

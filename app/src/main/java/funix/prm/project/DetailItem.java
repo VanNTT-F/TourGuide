@@ -13,8 +13,10 @@ public class DetailItem extends Fragment {
     String sc;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //Get scItem and ItemPosition argument from detail_list fragment
         sc = this.getArguments().getString("scItem");
         int item =  getArguments().getInt("ItemPosition");
+        //Create view of detail-item fragment
         View view = inflater.inflate(R.layout.detail_item, container, false);
 
         ImageView mItemImage = view.findViewById(R.id.detail_logo);
@@ -22,6 +24,8 @@ public class DetailItem extends Fragment {
         TextView mItemAddress = view.findViewById(R.id.detail_address);
         TextView mItemSlogan = view.findViewById(R.id.detail_slogan);
 
+        //Use switch condition with scItem and ItemPosition parameters:
+        //      --> get each item detail values showing on screen
         switch (sc) {
             case "hotel":
                 mItemImage.setImageResource(R.drawable.hotel);
@@ -48,9 +52,14 @@ public class DetailItem extends Fragment {
                 mItemSlogan.setText(getResources().getString(R.string.metro_slogan));
                 break;
         }
+        //return view of detail_item fragment
         return view;
     }
 
+    //in onViewCreated() method: set toolbar navigation button
+    //navigationOnClickListener event:
+    //      --> Use Bundle to reset service argument and pass to detail_list fragment
+    //      --> return to detail_list fragment (replace detail_item fragment with detail_list fragment)
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

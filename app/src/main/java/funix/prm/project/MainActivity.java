@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //add home_page fragment on activity created
         mHome = new HomePage();
         ft = fm.beginTransaction();
         ft.add(R.id.fragment_list, mHome);
